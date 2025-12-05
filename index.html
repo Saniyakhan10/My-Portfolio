@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saniya Khan — Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+         :root {
+            --pink: #ff7dd1;
+            --purple: #b690ff;
+            --dark-bg: #120712;
+            --dark-bg2: #1a0f19;
+            --muted: #c8bcd2;
+        }
+        
+        body.dark {
+            background: linear-gradient(135deg, var(--dark-bg), var(--dark-bg2));
+            color: white;
+        }
+        
+        body.light {
+            background: #ffeefe;
+            color: black;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        
+        body.light nav {
+            background: rgba(255, 200, 240, 0.4);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light nav a {
+            color: #555;
+        }
+        
+        body.light nav a:hover {
+            color: var(--purple);
+        }
+        
+        body.light .project-card {
+            background: #ffffff;
+            border: 1px solid #e6c8f5;
+            color: #333;
+        }
+        
+        body.light .project-card p {
+            color: #666;
+        }
+        
+        body.light .skill {
+            background: #ffffff;
+            border: 1px solid #e6c8f5;
+        }
+        
+        body.light .skill h4 {
+            color: var(--purple);
+        }
+        
+        body.light .contact-info {
+            background: #ffffff;
+            border: 1px solid #e6c8f5;
+        }
+        
+        body.light .contact-info p,
+        body.light .contact-info a {
+            color: #444;
+        }
+        
+        body.light form input,
+        body.light form textarea {
+            background: #f7e8fa;
+            color: #333;
+        }
+        
+        body.light .title h3 {
+            color: var(--pink);
+        }
+        
+        body.light .title p {
+            color: #555;
+        }
+        
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        nav h1 {
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 24px;
+            font-weight: 900;
+        }
+        
+        nav a {
+            margin-left: 18px;
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            color: white;
+        }
+        
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            color: white;
+            transition: .3s;
+        }
+        
+        .btn.secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: var(--muted);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        header.hero {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        
+        #vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-left {
+            max-width: 620px;
+        }
+        
+        .tag {
+            padding: 6px 12px;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            color: white;
+            font-weight: 700;
+            border-radius: 30px;
+        }
+        
+        .hero-left h2 {
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            -webkit-background-clip: text;
+            color: transparent;
+            margin: 18px 0;
+        }
+        
+        .hero-left p {
+            font-size: 17px;
+            color: var(--muted);
+        }
+        
+        .cta {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        
+        .profile-box {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-box img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: .3s;
+        }
+        
+        .profile-box:hover img {
+            transform: scale(1.05) rotate(-4deg);
+        }
+        
+        section {
+            padding: 70px 8%;
+        }
+        
+        .title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        
+        .title h3 {
+            font-size: 30px;
+            color: var(--purple);
+            font-weight: 900;
+        }
+        
+        .title p {
+            color: var(--muted);
+        }
+        
+        .skills-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .skill {
+            width: 180px;
+            padding: 22px;
+            text-align: center;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .skill h4 {
+            color: var(--pink);
+            margin-bottom: 6px;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .project-card {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: .3s;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-6px);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 160px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        
+        .project-card h4 {
+            color: var(--pink);
+        }
+        
+        .project-card p {
+            color: var(--muted);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-info p {
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            outline: none;
+            margin-bottom: 12px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            color: var(--muted);
+        }
+    </style>
+</head>
+
+<body class="dark">
+
+    <nav>
+        <h1>Saniya Khan</h1>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <button id="themeToggle" class="btn secondary">
+            <i class="fa-solid fa-sun"></i>
+        </button>
+    </nav>
+
+    <header class="hero">
+        <div id="vanta-bg"></div>
+
+        <div class="hero-left">
+            <span class="tag">Web Developer • BCA Student</span>
+            <h2>Hi, I'm <span style="color:var(--pink)">Saniya</span>, I create beautiful and modern websites.</h2>
+            <p>I love soft pastel UI, clean structure and responsive design.</p>
+
+            <div class="cta">
+                <a href="#projects" class="btn">See Projects</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+        </div>
+
+        <div class="profile-box">
+            <img src="img1.png" alt="profile">
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="title">
+            <h3>About Me</h3>
+            <p>I create aesthetic & interactive web experiences using HTML, CSS, JS and creative UI techniques.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="title">
+            <h3>My Skills</h3>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                <h4>HTML</h4>
+            </div>
+            <div class="skill">
+                <h4>CSS</h4>
+            </div>
+            <div class="skill">
+                <h4>JavaScript</h4>
+            </div>
+            <div class="skill">
+                <h4>Java</h4>
+            </div>
+
+            <div class="skill">
+                <h4>DSA</h4>
+            </div>
+            <div class="skill">
+                <h4>Git</h4>
+            </div>
+            <div class="skill">
+                <h4>GitHub</h4>
+            </div>
+            <div class="skill">
+                <h4>AI Tools</h4>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="title">
+            <h3>Projects</h3>
+        </div>
+
+        <div class="projects">
+
+            <a href="https://saniyakhan10.github.io/Calculator/" target="_blank" class="project-card">
+                <img src="calculator.jpg">
+                <h4>Calculator</h4>
+                <p>Simple functional calculator UI.</p>
+            </a>
+
+            <a href="https://saniyakhan10.github.io/Ninja-Stdio-Project/" target="_blank" class="project-card">
+                <img src="music.jpg">
+                <h4>Ninja Studio</h4>
+                <p>Music platform with playlists.</p>
+            </a>
+
+            <a href="https://saniyakhan10.github.io/fashion/" target="_blank" class="project-card">
+                <img src="fashion.jpg">
+                <h4>Fashion Website</h4>
+                <p>Modern fashion brand landing page.</p>
+            </a>
+
+            <a href="https://saniyakhan10.github.io/Shoes/" target="_blank" class="project-card">
+                <img src="shoes.jpg">
+                <h4>Shoes Website</h4>
+                <p>Shoes Junction homepage UI.</p>
+            </a>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="title">
+            <h3>Get In Touch</h3>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <p><i class="fa-solid fa-envelope"></i> your-email@gmail.com</p>
+
+                <p><i class="fa-solid fa-location-dot"></i> Balaghat, MP</p>
+
+                <a href="https://www.linkedin.com/in/saniya-khan-996759367/" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+
+                <a href="https://github.com/Saniyakhan10" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+
+            <form>
+                <input type="text" placeholder="Your name">
+                <input type="email" placeholder="Your email">
+                <textarea rows="5" placeholder="Message..."></textarea>
+                <button class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        © <span id="year"></span> Saniya Khan — Built with ❤️
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"></script>
+
+    <script>
+        VANTA.FOG({
+            el: "#vanta-bg",
+            highlightColor: 0xff7dd1,
+            midtoneColor: 0xb690ff,
+            lowlightColor: 0x6b2c7a,
+            baseColor: 0x120712,
+            blurFactor: 0.6,
+            speed: 1.2,
+            zoom: 1.1
+        });
+    </script>
+
+    <script>
+        const themeBtn = document.getElementById("themeToggle");
+
+        let mode = localStorage.getItem("theme");
+        if (mode === "light") {
+            document.body.classList.add("light");
+            document.body.classList.remove("dark");
+        }
+
+        function updateIcon() {
+            if (document.body.classList.contains("light")) {
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
+        }
+        updateIcon();
+
+        themeBtn.addEventListener("click", () => {
+            document.body.classList.toggle("light");
+            document.body.classList.toggle("dark");
+            localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+            updateIcon();
+        });
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
