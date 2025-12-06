@@ -7,7 +7,7 @@
     <title>Saniya Khan — Portfolio</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
          :root {
@@ -50,18 +50,6 @@
             caret-color: #ffffff !important;
         }
         
-        body.light form input,
-        body.light form textarea {
-            background: #f8dfff !important;
-            color: #3c2e4a !important;
-            caret-color: #3c2e4a !important;
-        }
-        
-        body.light form input::placeholder,
-        body.light form textarea::placeholder {
-            color: #6b5a78 !important;
-        }
-        
         body.dark form input::placeholder,
         body.dark form textarea::placeholder {
             color: #d8c9ef !important;
@@ -89,6 +77,11 @@
         body.light input,
         body.light textarea {
             color: #3b2e4a !important;
+        }
+        
+        body.light form input::placeholder,
+        body.light form textarea::placeholder {
+            color: #6b5a78 !important;
         }
         
         body.light .skill,
@@ -140,6 +133,22 @@
             font-weight: 600;
             text-decoration: none;
             transition: 0.3s;
+            position: relative;
+        }
+        
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0%;
+            height: 2px;
+            background: var(--pink);
+            transition: 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
         }
         
         nav a:hover {
@@ -231,9 +240,33 @@
         .profile-box:hover img {
             transform: scale(1.05);
         }
+        /* ⭐ FIXED ABOUT SECTION ⭐ */
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6rem;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .about-img img {
+            width: 250px;
+            height: 300px;
+            border-radius: 18px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(255, 125, 209, 0.25);
+        }
+        
+        .about-text {
+            max-width: 480px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
         
         section {
-            padding: 70px 8%;
+            padding: 80px 8%;
         }
         
         .title {
@@ -320,10 +353,21 @@
         }
         
         .hero-left h2,
-        .hero-left p,
-        .hero-left .btn,
-        .hero-left .btn.secondary {
+        .hero-left p {
             color: white !important;
+        }
+        
+        .hero-left h2 {
+            -webkit-text-fill-color: white !important;
+        }
+        
+        header.hero .hero-left p {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
+        .hero-left .btn {
+            color: #4f2b64 !important;
         }
         
         .hero-left .tag {
@@ -331,69 +375,126 @@
             background: rgba(255, 255, 255, 0.85) !important;
         }
         
+        body.light .contact-info {
+            background: #fff0fa !important;
+            border: 1px solid #e9c4f3 !important;
+        }
+        
         body.light .contact-info p,
         body.light .contact-info a {
-            color: #3b2c4e !important;
+            color: #3c2b4d !important;
+        }
+        
+        body.light .contact-info i {
+            color: #b75fd4 !important;
+        }
+        
+        body.light form {
+            background: #ffffff !important;
+            border: 1px solid #eac6f5 !important;
         }
         
         body.light form input,
         body.light form textarea {
+            background: #fff1fa !important;
+            border: 1px solid #e8c5f6 !important;
             color: #3b2c4e !important;
         }
+        /* FIX 1: Hero heading & paragraph white */
         
-        #themeToggle i {
-            color: white !important;
+        .hero-left h2,
+        .hero-left p {
+            color: #ffffff !important;
+        }
+        /* FIX 2: Hero second button white text */
+        
+        .hero-left .btn.secondary {
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.6) !important;
+        }
+        /* FIX 3: Contact section button text dark in light theme */
+        
+        body.light #contact button.btn {
+            color: #513163
         }
         
-        body.light #themeToggle i {
-            color: #3b2c4e !important;
-        }
-        
-        body.light .hero-left h2,
-        body.light .hero-left p {
-            color: white !important;
-        }
-        
-        .about-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6rem;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .about-img img {
-            width: 250px;
-            height: 300px;
-            border-radius: 18px;
-            object-fit: cover;
-            box-shadow: 0 0 20px rgba(255, 125, 209, 0.25);
-        }
-        
-        .about-text {
-            max-width: 480px;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        
-        section {
-            padding: 80px 8% !important;
-        }
-        
-        body.light .about-img img {
-            background: #2b1a35 !important;
-            padding: 10px;
-            border-radius: 18px;
-        }
-        
-        .cta .btn:first-child {
-            color: #2a1538 !important;
+        body.dark #contact button.btn {
+            color: #513163
         }
         
         footer {
             text-align: center;
             padding: 25px 0;
+        }
+        /* Swap positions in desktop */
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-grid>form {
+            order: 1;
+        }
+        
+        .contact-grid>.contact-info {
+            order: 2;
+        }
+        /* Mobile Responsive Fix */
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid>form,
+            .contact-grid>.contact-info {
+                order: unset;
+                /* mobile me natural order */
+            }
+            form,
+            .contact-info {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 5%;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            nav div {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: center;
+            }
+            nav a {
+                margin-left: 0;
+            }
+            #themeToggle {
+                margin-top: 6px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* hero text center */
+            .hero-left {
+                text-align: center;
+                width: 100%;
+            }
+            /* buttons center */
+            .cta {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+            }
+            /* FIX: Image moves down below buttons — no overlap */
+            .profile-box {
+                margin-top: 60px !important;
+            }
         }
     </style>
 </head>
@@ -410,9 +511,8 @@
             <a href="#contact">Contact</a>
         </div>
 
-        <button id="themeToggle" class="btn secondary">
-            <i class="fa-solid fa-sun"></i>
-        </button>
+        <button id="themeToggle" class="btn secondary"></button>
+
     </nav>
 
     <header class="hero">
@@ -458,7 +558,6 @@
         </div>
 
         <div class="skills-grid">
-
             <div class="skill">
                 <img src="html.png">
                 <h4>HTML</h4>
@@ -606,11 +705,13 @@
         }
 
         function updateIcon() {
-            themeBtn.innerHTML =
-                document.body.classList.contains("light") ?
-                '<i class="fa-solid fa-moon"></i>' :
-                '<i class="fa-solid fa-sun"></i>';
+            if (document.body.classList.contains("light")) {
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
         }
+
         updateIcon();
 
         themeBtn.addEventListener("click", () => {
