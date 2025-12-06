@@ -240,7 +240,6 @@
         .profile-box:hover img {
             transform: scale(1.05);
         }
-        /* ⭐ FIXED ABOUT SECTION ⭐ */
         
         .about-container {
             display: flex;
@@ -400,19 +399,16 @@
             border: 1px solid #e8c5f6 !important;
             color: #3b2c4e !important;
         }
-        /* FIX 1: Hero heading & paragraph white */
         
         .hero-left h2,
         .hero-left p {
             color: #ffffff !important;
         }
-        /* FIX 2: Hero second button white text */
         
         .hero-left .btn.secondary {
             color: #ffffff !important;
             border-color: rgba(255, 255, 255, 0.6) !important;
         }
-        /* FIX 3: Contact section button text dark in light theme */
         
         body.light #contact button.btn {
             color: #513163
@@ -426,7 +422,6 @@
             text-align: center;
             padding: 25px 0;
         }
-        /* Swap positions in desktop */
         
         .contact-grid {
             display: grid;
@@ -441,20 +436,16 @@
         .contact-grid>.contact-info {
             order: 2;
         }
-        /* Mobile Responsive Fix */
         
         @media (max-width: 768px) {
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-            .contact-grid>form,
-            .contact-grid>.contact-info {
-                order: unset;
-                /* mobile me natural order */
+            .contact-grid>form {
+                order: 1;
             }
-            form,
-            .contact-info {
-                width: 100%;
+            .contact-grid>.contact-info {
+                order: 2;
             }
         }
         
@@ -480,18 +471,15 @@
         }
         
         @media (max-width: 768px) {
-            /* hero text center */
             .hero-left {
                 text-align: center;
                 width: 100%;
             }
-            /* buttons center */
             .cta {
                 display: flex;
                 justify-content: center;
                 gap: 12px;
             }
-            /* FIX: Image moves down below buttons — no overlap */
             .profile-box {
                 margin-top: 60px !important;
             }
